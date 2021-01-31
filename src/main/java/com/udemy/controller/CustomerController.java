@@ -48,8 +48,8 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
-    @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("customerId") int theId, Model model) {
+    @GetMapping("/showFormForUpdate/{customerId}")
+    public String showFormForUpdate(@PathVariable(value = "customerId") int theId, Model model) {
         // get the customer from our service
         // set customer as a model attribute to pre-populate the form
         // send over to our form
@@ -58,11 +58,5 @@ public class CustomerController {
         model.addAttribute("customer", customer);
         return "customer-form";
     }
-
-
-
-
-
-
 
 }

@@ -33,10 +33,10 @@ public class CustomerDAOImplementation implements CustomerDAO {
     @Override
     public void saveCustomer(Customer customer) {
         // get current hibernate session
-        // save the customer
+        // save/update the customer
 
         Session currentSession = sessionFactory.openSession();
-        currentSession.save(customer);
+        currentSession.saveOrUpdate(customer);
     }
 
     @Override
@@ -45,7 +45,6 @@ public class CustomerDAOImplementation implements CustomerDAO {
         // now retrieve/read from database using the primary key
 
         Session currentSession = sessionFactory.openSession();
-        Customer customer = currentSession.get(Customer.class, theId);
-        return customer;
+        return currentSession.get(Customer.class, theId);
     }
 }

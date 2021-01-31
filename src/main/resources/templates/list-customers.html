@@ -35,7 +35,8 @@
                 <td th:text="${customer.firstName}"></td>
                 <td th:text="${customer.lastName}"></td>
                 <td th:text="${customer.email}"></td>
-                <td><a th:href="@{/showFormForUpdate/{customerId}(customerId=${customer.id})}" class="add-button">Update</a></td>
+                <td><a th:href="@{/customer/showFormForUpdate/{customerId}(customerId=${customer.id})}"
+                       class="add-button">Update</a></td>
             </tr>
             </tbody>
         </table>
